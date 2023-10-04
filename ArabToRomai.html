@@ -45,8 +45,8 @@
 			while ( n >= numbers[i] )
 			{
 				
-				output += i;
-				n -= numbers[i];
+				output += i; /*Hozzáadja szöveges formátumban az adott római számot.*/
+				n -= numbers[i]; /*Kivonja belőle a római számhoz tartozó arab számokat.*/
 				
 			}
 			
@@ -70,6 +70,72 @@
       });
       QUnit.test('negy', function(assert) {
         assert.equal(ArabToRomai(4), 'IV');
+      });
+	  QUnit.test('ot', function(assert) {
+        assert.equal(ArabToRomai(5), 'V');
+      });
+      QUnit.test('hat', function(assert) {
+        assert.equal(ArabToRomai(6), 'VI');
+      });
+      QUnit.test('het', function(assert) {
+        assert.equal(ArabToRomai(7), 'VII');
+      });
+      QUnit.test('nyolc', function(assert) {
+        assert.equal(ArabToRomai(8), 'VIII');
+      });
+      QUnit.test('kilenc', function(assert) {
+        assert.equal(ArabToRomai(9), 'IX');
+      });
+      QUnit.test('tiz', function(assert) {
+        assert.equal(ArabToRomai(10), 'X');
+      });
+      QUnit.test('tizenegy', function(assert) {
+        assert.equal(ArabToRomai(11), 'XI');
+      });
+      QUnit.test('tizenkilenc', function(assert) {
+        assert.equal(ArabToRomai(19), 'XIX');
+      });
+      QUnit.test('negyvenketto', function(assert) {
+        assert.equal(ArabToRomai(42), 'XLII');
+      });
+      QUnit.test('otven', function(assert) {
+        assert.equal(ArabToRomai(50), 'L');
+      });
+      QUnit.test('nyolcvannyolc', function(assert) {
+        assert.equal(ArabToRomai(88), 'LXXXVIII');
+      });
+      QUnit.test('kilencven', function(assert) {
+        assert.equal(ArabToRomai(90), 'XC');
+      });
+      QUnit.test('kilencvennegy', function(assert) {
+        assert.equal(ArabToRomai(94), 'XCIV');
+      });
+      QUnit.test('szaz', function(assert) {
+        assert.equal(ArabToRomai(100), 'C');
+      });
+      QUnit.test('haromszazhatvanegy', function(assert) {
+        assert.equal(ArabToRomai(361), 'CCCLXI');
+      });
+      QUnit.test('negyszazhuszonketto', function(assert) {
+        assert.equal(ArabToRomai(422), 'CDXXII');
+      });
+      QUnit.test('otszaz', function(assert) {
+        assert.equal(ArabToRomai(500), 'D');
+      });
+      QUnit.test('nyolcszazhat', function(assert) {
+        assert.equal(ArabToRomai(806), 'DCCCVI');
+      });
+      QUnit.test('kilencszazharminc', function(assert) {
+        assert.equal(ArabToRomai(930), 'CMXXX');
+      });
+      QUnit.test('ezer', function(assert) {
+        assert.equal(ArabToRomai(1000), 'M');
+      });
+      QUnit.test('negyezerhuszonegy', function(assert) {
+        assert.equal(ArabToRomai(4021), 'MMMMXXI');
+      });
+      QUnit.test('otezernyolcszazkilencvennegy', function(assert) {
+        assert.equal(ArabToRomai(5894), 'MMMMMDCCCXCIV');
       });
 	});
     
