@@ -20,11 +20,18 @@
 		
 		var output = '';
 		
-		var numbers = { 'I' : 1 }
+		var numbers = { 
+		'I' : 1
 		
-		var teszt = Object.keys(numbers);
+		}
 		
-		output = teszt[0];
+		for (i in numbers)
+		{
+			
+			output += i;
+			
+		}
+		
 		return output;
 		
     }
