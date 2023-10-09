@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+
+</head>
+<body>
+    
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+    
+</body>
+<script>
+    
+    function ArabToRomai(n)
+    {	
+		
+		return 'I';
+		
+    }
+    
+	QUnit.module('ArabToRomai', function() {
+      QUnit.test('egy', function(assert) {
+        assert.equal(ArabToRomai(1), 'I');
+      });
+	});
+    
+</script>
