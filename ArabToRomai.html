@@ -21,14 +21,22 @@
 		var output = '';
 		
 		var numbers = { 
-		'I' : 1
+			
+			
+			'I' : 1
 		
 		}
 		
 		for (i in numbers)
 		{
 			
-			output += i;
+			while ( n >= numbers[i] )
+			{
+				
+				output += i;
+				n -= numbers[i];
+				
+			}
 			
 		}
 		
