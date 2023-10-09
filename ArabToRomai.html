@@ -22,6 +22,7 @@
 		
 		var numbers = { 
 			
+			'V' : 5,
 			'IV' : 4,
 			'I' : 1
 		
@@ -56,6 +57,9 @@
       });
 	  QUnit.test('negy', function(assert) {
         assert.equal(ArabToRomai(4), 'IV');
+      });
+	  QUnit.test('ot', function(assert) {
+        assert.equal(ArabToRomai(5), 'V');
       });
 	});
     
