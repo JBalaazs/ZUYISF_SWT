@@ -64,7 +64,8 @@
       }
       if(rCount > 0)
       {
-
+        const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé.
+        positionX = x[moveX]
       }
       if(lCount == 0 & rCount == 0)
       {
@@ -219,19 +220,19 @@
           assert.equal(holdJaro("rf"), 'x: 2 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore2', function(assert) {
-          assert.equal(holdJaro("rff"), 'x: 1 y: 3 D: E');
+          assert.equal(holdJaro("rff"), 'x: 3 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore3', function(assert) {
-          assert.equal(holdJaro("rfff"), 'x: 1 y: 4 D: E');
+          assert.equal(holdJaro("rfff"), 'x: 4 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore4', function(assert) {
-          assert.equal(holdJaro("rffff"), 'x: 1 y: 5 D: E');
+          assert.equal(holdJaro("rffff"), 'x: 5 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore5', function(assert) {
-          assert.equal(holdJaro("rfffff"), 'x: 1 y: 6 D: E');
+          assert.equal(holdJaro("rfffff"), 'x: 6 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore6', function(assert) {
-          assert.equal(holdJaro("rffffff"), 'x: 1 y: 7 D: E');
+          assert.equal(holdJaro("rffffff"), 'x: 7 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore7', function(assert) {
           assert.equal(holdJaro("rfffffff"), 'x: 1 y: 8 D: E');
