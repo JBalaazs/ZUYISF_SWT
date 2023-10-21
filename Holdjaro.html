@@ -157,6 +157,15 @@
     QUnit.test('balra5', function(assert) {
         assert.equal(holdJaro("lllll"), 'x: 1 y: 1 D: W');
     });
+    QUnit.test('balra6', function(assert) {
+        assert.equal(holdJaro("llllll"), 'x: 1 y: 1 D: S');
+    });
+    QUnit.test('balra7', function(assert) {
+        assert.equal(holdJaro("lllllll"), 'x: 1 y: 1 D: E');
+    });
+    QUnit.test('balra 8', function(assert) {
+        assert.equal(holdJaro("llllllll"), 'x: 1 y: 1 D: N');
+    });
   });
 
 </script>
