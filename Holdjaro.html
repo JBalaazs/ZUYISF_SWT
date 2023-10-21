@@ -57,8 +57,20 @@
 
     if(fCount > 0)
     {
-      const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
-      positionY = y[moveY]
+      if(lCount > 0)
+      {
+        const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé.
+        positionX = x[moveX]
+      }
+      if(rCount > 0)
+      {
+
+      }
+      if(lCount == 0 & rCount == 0)
+      {
+        const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
+        positionY = y[moveY]
+      }
     }
 
     if(bCount > 0)
@@ -204,7 +216,7 @@
     //JOBBRA fordul és ELŐRE megy ellenőrzés.
     QUnit.module('JobbraEsElore', function() {
       QUnit.test('jobbra1_elore1', function(assert) {
-          assert.equal(holdJaro("rf"), 'x: 1 y: 2 D: E');
+          assert.equal(holdJaro("rf"), 'x: 2 y: 1 D: E');
       });
       QUnit.test('jobbra1_elore2', function(assert) {
           assert.equal(holdJaro("rff"), 'x: 1 y: 3 D: E');
@@ -233,7 +245,7 @@
   });
 
     //JOBBRA fordul és HÁTRA megy ellenőrzés.
-    QUnit.module('JobbraEsElore', function() {
+    QUnit.module('JobbraEsHatra', function() {
       QUnit.test('jobbra1_hatra1', function(assert) {
           assert.equal(holdJaro("rb"), 'x: 1 y: 8 D: E');
       });
@@ -260,6 +272,13 @@
       });
       QUnit.test('jobbra1_hatra10', function(assert) {
           assert.equal(holdJaro("rbbbbbbbbbb"), 'x: 1 y: 7 D: E');
+      });
+  });
+
+      //BALRA fordul és ELŐRE megy ellenőrzés.
+      QUnit.module('BalraEsElore', function() {
+      QUnit.test('balra1_elore1', function(assert) {
+          assert.equal(holdJaro("lf"), 'x: 8 y: 1 D: W');
       });
   });
 
