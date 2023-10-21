@@ -66,6 +66,9 @@
       QUnit.test('előre7', function(assert) {
         assert.equal(holdJaro("fffffff"), 'x: 1 y: 8 D: N');
       });
+      QUnit.test('előre8', function(assert) {
+        assert.equal(holdJaro("ffffffff"), 'x: 1 y: 1 D: N');
+      });
   });
 
   //HÁTRA elllenőrzés.
