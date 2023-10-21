@@ -293,6 +293,18 @@
       QUnit.test('balra1_elore5', function(assert) {
           assert.equal(holdJaro("lfffff"), 'x: 4 y: 1 D: W');
       });
+      QUnit.test('balra1_elore6', function(assert) {
+          assert.equal(holdJaro("lffffff"), 'x: 3 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore7', function(assert) {
+          assert.equal(holdJaro("lfffffff"), 'x: 2 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore8', function(assert) {
+          assert.equal(holdJaro("lffffffff"), 'x: 1 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore10', function(assert) {
+          assert.equal(holdJaro("lffffffffff"), 'x: 7 y: 1 D: W');
+      });
   });
 
 </script>
