@@ -43,4 +43,11 @@
 
   }
 
+  //ELŐRE elllenőrzés.
+  QUnit.module('Előre', function() {
+      QUnit.test('előre1', function(assert) {
+        assert.equal(holdJaro("f"), 'x: 1 y: 2 D: N');
+      });
+  });
+
 </script>
