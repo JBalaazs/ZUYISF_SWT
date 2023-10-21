@@ -160,6 +160,7 @@
       });
   });
 
+  //BALRA ellenőrzés.
   QUnit.module('Balra', function() {
     QUnit.test('balra1', function(assert) {
         assert.equal(holdJaro("l"), 'x: 1 y: 1 D: W');
@@ -184,6 +185,13 @@
     });
     QUnit.test('balra 8', function(assert) {
         assert.equal(holdJaro("llllllll"), 'x: 1 y: 1 D: N');
+    });
+  });
+
+    //JOBBRA ellenőrzés.
+    QUnit.module('Jobbra', function() {
+    QUnit.test('jobbra1', function(assert) {
+        assert.equal(holdJaro("r"), 'x: 1 y: 1 D: E');
     });
   });
 
