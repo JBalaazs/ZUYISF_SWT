@@ -224,6 +224,12 @@
       QUnit.test('jobbra1_elore7', function(assert) {
           assert.equal(holdJaro("rfffffff"), 'x: 1 y: 8 D: E');
       });
+      QUnit.test('jobbra1_elore8', function(assert) {
+          assert.equal(holdJaro("rffffffff"), 'x: 1 y: 1 D: E');
+      });
+      QUnit.test('jobbra1_elore10', function(assert) {
+          assert.equal(holdJaro("rffffffffff"), 'x: 1 y: 3 D: E');
+      });
   });
 
 </script>
