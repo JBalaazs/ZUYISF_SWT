@@ -59,12 +59,12 @@
     {
       if(lCount > 0)
       {
-        const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé.
+        const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé Y tengelyen.
         positionX = x[moveX]
       }
       if(rCount > 0)
       {
-        const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé.
+        const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul jobbra, akkor nem mehet felfelé Y tengelyen.
         positionX = x[moveX]
       }
       if(lCount == 0 & rCount == 0)
@@ -276,10 +276,22 @@
       });
   });
 
-      //BALRA fordul és ELŐRE megy ellenőrzés.
-      QUnit.module('BalraEsElore', function() {
+    //BALRA fordul és ELŐRE megy ellenőrzés.
+    QUnit.module('BalraEsElore', function() {
       QUnit.test('balra1_elore1', function(assert) {
           assert.equal(holdJaro("lf"), 'x: 8 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore2', function(assert) {
+          assert.equal(holdJaro("lff"), 'x: 7 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore3', function(assert) {
+          assert.equal(holdJaro("lfff"), 'x: 6 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore4', function(assert) {
+          assert.equal(holdJaro("lffff"), 'x: 5 y: 1 D: W');
+      });
+      QUnit.test('balra1_elore5', function(assert) {
+          assert.equal(holdJaro("lfffff"), 'x: 4 y: 1 D: W');
       });
   });
 
