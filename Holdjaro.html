@@ -232,4 +232,11 @@
       });
   });
 
+    //JOBBRA fordul és HÁTRA megy ellenőrzés.
+    QUnit.module('JobbraEsElore', function() {
+      QUnit.test('jobbra1_hatra1', function(assert) {
+          assert.equal(holdJaro("rb"), 'x: 1 y: 8 D: E');
+      });
+  });
+
 </script>
