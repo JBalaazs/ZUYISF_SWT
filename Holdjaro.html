@@ -35,6 +35,9 @@
             fCount++;
           }
         }
+        
+      const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
+      positionY = y[moveY]
 
     }
 
