@@ -76,6 +76,21 @@
       direction = d[moveXY];
 
 		}
+
+    //JOBBRA:
+    if(a.substring(0, 1) == 'r'){
+      
+        let rCount = 0;
+
+        for(let i=0; i<a.length; i++)
+        {
+          if(a[i] == 'r')
+          {
+            rCount++;
+          }
+        }
+		}
+
     return ('x: ' + positionX + ' y: ' + positionY + ' D: ' + direction );
   }
 
