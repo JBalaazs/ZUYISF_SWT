@@ -80,7 +80,7 @@
     }
 
     return ('x: ' + positionX + ' y: ' + positionY + ' D: ' + direction );
-    
+
   }
 
   //ELŐRE elllenőrzés.
@@ -173,7 +173,7 @@
     });
   });
 
-    //JOBBRA ellenőrzés.
+  //JOBBRA ellenőrzés.
   QUnit.module('Jobbra', function() {
     QUnit.test('jobbra1', function(assert) {
         assert.equal(holdJaro("r"), 'x: 1 y: 1 D: E');
@@ -198,6 +198,13 @@
     });
     QUnit.test('jobbra8', function(assert) {
         assert.equal(holdJaro("rrrrrrrr"), 'x: 1 y: 1 D: N');
+    });
+  });
+
+    //JOBBRA fordul és ELŐRE megy ellenőrzés.
+    QUnit.module('JobbraEsElore', function() {
+    QUnit.test('jobbra1', function(assert) {
+        assert.equal(holdJaro("rf"), 'x: 1 y: 1 D: E');
     });
   });
 
