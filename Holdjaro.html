@@ -57,27 +57,40 @@
 
     if(fCount > 0)
     {
-      if(lCount > 0)
-      {
-        const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé Y tengelyen.
-        positionX = x[moveX]
-      }
-      if(rCount > 0)
-      {
-        const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul jobbra, akkor nem mehet felfelé Y tengelyen.
-        positionX = x[moveX]
-      }
-      if(lCount == 0 & rCount == 0)
-      {
-        const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
-        positionY = y[moveY]
-      }
+        if(lCount > 0)
+        {
+          const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé Y tengelyen.
+          positionX = x[moveX]
+        }
+        if(rCount > 0)
+        {
+          const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul jobbra, akkor nem mehet felfelé Y tengelyen.
+          positionX = x[moveX]
+        }
+        if(lCount == 0 & rCount == 0)
+        {
+          const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
+          positionY = y[moveY]
+        }
     }
 
     if(bCount > 0)
     {
-      const moveY = (y.length - bCount % y.length) % y.length;
-      positionY = y[moveY]
+        if(lCount > 0)
+        {
+          const moveX = (x.length + bCount % x.length) % x.length;
+          positionX = x[moveX]
+        }
+        if(rCount > 0)
+        {
+          const moveX = (x.length - bCount % x.length) % x.length;
+          positionX = x[moveX]
+        }
+        if(lCount == 0 & rCount == 0)
+        {
+          const moveY = (y.length - bCount % y.length) % y.length;
+          positionY = y[moveY]
+        }
     }
 
     if(lCount > 0)
@@ -248,10 +261,10 @@
     //JOBBRA fordul és HÁTRA megy ellenőrzés.
     QUnit.module('JobbraEsHatra', function() {
       QUnit.test('jobbra1_hatra1', function(assert) {
-          assert.equal(holdJaro("rb"), 'x: 1 y: 8 D: E');
+          assert.equal(holdJaro("rb"), 'x: 8 y: 1 D: E');
       });
       QUnit.test('jobbra1_hatra2', function(assert) {
-          assert.equal(holdJaro("rbb"), 'x: 1 y: 7 D: E');
+          assert.equal(holdJaro("rbb"), 'x: 7 y: 1 D: E');
       });
       QUnit.test('jobbra1_hatra3', function(assert) {
           assert.equal(holdJaro("rbbb"), 'x: 1 y: 6 D: E');
