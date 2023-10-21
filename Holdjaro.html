@@ -30,8 +30,20 @@
     let lCount = 0;
     let rCount = 0;
 
+    var TrueOrFalse = false;
+
     for(let i=0; i<a.length; i++)
     {
+
+      if(a[0] == 'f')
+      {
+          TrueOrFalse = true;
+      }
+
+      if(a[0] == 'b')
+      {
+        TrueOrFalse = true;
+      }
 
       if(a[i] == 'f')
       {
@@ -55,44 +67,6 @@
 
     }
 
-    if(fCount > 0)
-    {
-        if(lCount > 0)
-        {
-          const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé Y tengelyen.
-          positionX = x[moveX]
-        }
-        if(rCount > 0)
-        {
-          const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul jobbra, akkor nem mehet felfelé Y tengelyen.
-          positionX = x[moveX]
-        }
-        if(lCount == 0 & rCount == 0)
-        {
-          const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
-          positionY = y[moveY]
-        }
-    }
-
-    if(bCount > 0)
-    {
-        if(lCount > 0)
-        {
-          const moveX = (x.length + bCount % x.length) % x.length;
-          positionX = x[moveX]
-        }
-        if(rCount > 0)
-        {
-          const moveX = (x.length - bCount % x.length) % x.length;
-          positionX = x[moveX]
-        }
-        if(lCount == 0 & rCount == 0)
-        {
-          const moveY = (y.length - bCount % y.length) % y.length;
-          positionY = y[moveY]
-        }
-    }
-
     if(lCount > 0)
     {
       const moveXY = (d.length - lCount % d.length) % d.length;
@@ -104,6 +78,65 @@
       const moveXY = (d.length + rCount % d.length) % d.length;
       direction = d[moveXY];
     }
+
+    let counter = 0;
+
+    if(fCount > 0)
+    {
+
+        if (counter > 0)
+        {
+          TrueOrFalse = false;
+        }
+
+        if(lCount > 0 && TrueOrFalse == false)
+        {
+          const moveX = (x.length - fCount % x.length) % x.length; //Ha már elfordul balra, akkor nem mehet felfelé Y tengelyen.
+          positionX = x[moveX];
+        }
+        
+        if(rCount > 0 && TrueOrFalse == false)
+        {
+          const moveX = (x.length + fCount % x.length) % x.length; //Ha már elfordul jobbra, akkor nem mehet felfelé Y tengelyen.
+          positionX = x[moveX];
+        }
+          
+        if( (lCount == 0 && rCount == 0) || TrueOrFalse == true)
+        {
+          const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
+          positionY = y[moveY];
+
+          counter++;
+        }
+      
+    }
+
+      if(bCount > 0)
+      {
+
+          if (counter > 0)
+          {
+            TrueOrFalse = false;
+          }
+
+          if(lCount > 0 && TrueOrFalse == false)
+          {
+            const moveX = (x.length + bCount % x.length) % x.length;
+            positionX = x[moveX]
+          }
+          if(rCount > 0 && TrueOrFalse == false)
+          {
+            const moveX = (x.length - bCount % x.length) % x.length;
+            positionX = x[moveX]
+          }
+          if( (lCount == 0 && rCount == 0) || TrueOrFalse == true)
+          {
+            const moveY = (y.length - bCount % y.length) % y.length;
+            positionY = y[moveY]
+
+            counter++;
+          }
+      }
 
 
     return ('x: ' + positionX + ' y: ' + positionY + ' D: ' + direction );
@@ -118,6 +151,16 @@
     trap4 = 'x: 5 y: 1';
     trap5 = 'x: 7 y: 2';
 
+    warning = ""
+
+    /*if ( ('x: ' + positionX + 'y: ' + positionY) == trap1 )
+    {
+
+      
+
+    }*/
+
+
     if( holdJaro("ffffff").substring(0, 9) == trap1 )
     {
       trap1 = 'Siker!';
@@ -127,6 +170,7 @@
 
   }
 
+  //TRAP ellenőrzés.
   QUnit.module('Igaze', function() {
       QUnit.test('Egyezike', function(assert) {
         assert.equal(holdJaro_Trap(), 'Siker!');
@@ -372,6 +416,19 @@
       });
       QUnit.test('balra1_hatra10', function(assert) {
           assert.equal(holdJaro("lbbbbbbbbbb"), 'x: 3 y: 1 D: W');
+      });
+  });
+
+    //Teszt, hogy mi van akkor, ha először megyek fel és ott akarok elfordulni.
+    QUnit.module('Teszt', function() {
+      QUnit.test('Elore1BalraFord', function(assert) {
+          assert.equal(holdJaro("fl"), 'x: 1 y: 2 D: W');
+      });
+      QUnit.test('Elore1JobbraFord', function(assert) {
+          assert.equal(holdJaro("fr"), 'x: 1 y: 2 D: E');
+      });
+      QUnit.test('Elore1JobbraFordHatraMeg1', function(assert) {
+          assert.equal(holdJaro("frb"), 'x: 8 y: 2 D: E');
       });
   });
 
