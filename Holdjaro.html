@@ -89,6 +89,10 @@
             rCount++;
           }
         }
+
+        const moveXY = (d.length + rCount % d.length) % d.length;
+        direction = d[moveXY];
+
 		}
 
     return ('x: ' + positionX + ' y: ' + positionY + ' D: ' + direction );
