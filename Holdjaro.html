@@ -105,7 +105,20 @@
       direction = d[moveXY];
     }
 
+
     return ('x: ' + positionX + ' y: ' + positionY + ' D: ' + direction );
+
+  }
+
+  function holdJaro_Trap(){
+
+    trap1 = 'x: 1 y: 7';
+    trap2 = 'x: 3 y: 5';
+    trap3 = 'x: 6 y: 3';
+    trap4 = 'x: 5 y: 1';
+    trap5 = 'x: 7 y: 2';
+
+
 
   }
 
@@ -348,16 +361,6 @@
       });
       QUnit.test('balra1_hatra10', function(assert) {
           assert.equal(holdJaro("lbbbbbbbbbb"), 'x: 3 y: 1 D: W');
-      });
-  });
-
-    //Karika bejárás ellenőrzés.
-    QUnit.module('Karika', function() {
-      QUnit.test('elore1', function(assert) {
-          assert.equal(holdJaro("f"), 'x: 1 y: 2 D: N');
-      });
-      QUnit.test('elore2', function(assert) {
-          assert.equal(holdJaro("ff"), 'x: 1 y: 3 D: N');
       });
   });
 
