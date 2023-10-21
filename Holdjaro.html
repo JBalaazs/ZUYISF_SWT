@@ -356,6 +356,9 @@
       QUnit.test('elore1', function(assert) {
           assert.equal(holdJaro("f"), 'x: 1 y: 2 D: N');
       });
+      QUnit.test('elore2', function(assert) {
+          assert.equal(holdJaro("ff"), 'x: 1 y: 3 D: N');
+      });
   });
 
 </script>
