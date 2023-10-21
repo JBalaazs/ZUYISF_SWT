@@ -28,6 +28,7 @@
     let fCount = 0;
     let bCount = 0;
     let lCount = 0;
+    let rCount = 0;
 
     for(let i=0; i<a.length; i++)
     {
@@ -45,6 +46,11 @@
       if(a[i] == 'l')
       {
         lCount++;
+      }
+
+      if(a[i] == 'r')
+      {
+        rCount++;
       }
 
     }
@@ -67,25 +73,14 @@
       direction = d[moveXY];
     }
 
-    //JOBBRA:
-    if(a.substring(0, 1) == 'r'){
-      
-        let rCount = 0;
-
-        for(let i=0; i<a.length; i++)
-        {
-          if(a[i] == 'r')
-          {
-            rCount++;
-          }
-        }
-
-        const moveXY = (d.length + rCount % d.length) % d.length;
-        direction = d[moveXY];
-
-		}
+    if(rCount > 0)
+    {
+      const moveXY = (d.length + rCount % d.length) % d.length;
+      direction = d[moveXY];
+    }
 
     return ('x: ' + positionX + ' y: ' + positionY + ' D: ' + direction );
+    
   }
 
   //ELŐRE elllenőrzés.
