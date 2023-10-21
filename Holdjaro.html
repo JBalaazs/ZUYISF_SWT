@@ -23,23 +23,29 @@
     positionY = y[0]; //Tehát [0,0]-án áll és N fele néz.
     direction = d[0];
 
-    //ELŐRE:
-    if(a.substring(0, 1) == 'f'){
+    //Összegzett ELŐRE/HÁTRA/BALRA/JOBBRA
 
-        let fCount = 0;
+    let fCount = 0;
 
-        for(let i=0; i<a.length; i++)
-        {
-          if(a[i] == 'f')
-          {
-            fCount++;
-          }
-        }
+    for(let i=0; i<a.length; i++)
+    {
+
+      if(a[i] == 'f')
+      {
         
-      const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
-      positionY = y[moveY]
+        fCount++;
+
+      }
 
     }
+
+    if(fCount > 0)
+    {
+      const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
+      positionY = y[moveY]
+    }
+
+
 
     //HÁTRA:
     if(a.substring(0, 1) == 'b'){
@@ -189,7 +195,7 @@
   });
 
     //JOBBRA ellenőrzés.
-    QUnit.module('Jobbra', function() {
+  QUnit.module('Jobbra', function() {
     QUnit.test('jobbra1', function(assert) {
         assert.equal(holdJaro("r"), 'x: 1 y: 1 D: E');
     });
