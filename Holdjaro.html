@@ -27,6 +27,7 @@
 
     let fCount = 0;
     let bCount = 0;
+    let lCount = 0;
 
     for(let i=0; i<a.length; i++)
     {
@@ -39,6 +40,11 @@
       if(a[i] == 'b')
       {
         bCount++;
+      }
+
+      if(a[i] == 'l')
+      {
+        lCount++;
       }
 
     }
@@ -55,24 +61,11 @@
       positionY = y[moveY]
     }
 
-
-    //BALRA
-    if(a.substring(0, 1) == 'l'){
-      
-        let lCount = 0;
-
-        for(let i=0; i<a.length; i++)
-        {
-          if(a[i] == 'l')
-          {
-            lCount++;
-          }
-        }
-
+    if(lCount > 0)
+    {
       const moveXY = (d.length - lCount % d.length) % d.length;
       direction = d[moveXY];
-
-		}
+    }
 
     //JOBBRA:
     if(a.substring(0, 1) == 'r'){
