@@ -307,4 +307,11 @@
       });
   });
 
+    //BALRA fordul és HÁTRA megy ellenőrzés.
+    QUnit.module('BalraEsHatra', function() {
+      QUnit.test('balra1_hatra1', function(assert) {
+          assert.equal(holdJaro("lb"), 'x: 2 y: 1 D: W');
+      });
+  });
+
 </script>
