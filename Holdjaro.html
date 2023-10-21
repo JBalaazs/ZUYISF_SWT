@@ -237,6 +237,12 @@
       QUnit.test('jobbra1_hatra1', function(assert) {
           assert.equal(holdJaro("rb"), 'x: 1 y: 8 D: E');
       });
+      QUnit.test('jobbra1_hatra2', function(assert) {
+          assert.equal(holdJaro("rbb"), 'x: 1 y: 7 D: E');
+      });
+      QUnit.test('jobbra1_hatra3', function(assert) {
+          assert.equal(holdJaro("rbbb"), 'x: 1 y: 6 D: E');
+      });
   });
 
 </script>
