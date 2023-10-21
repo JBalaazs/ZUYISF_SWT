@@ -118,6 +118,10 @@
     trap4 = 'x: 5 y: 1';
     trap5 = 'x: 7 y: 2';
 
+    if( holdJaro("ffffff").substring(0, 9) == trap1 )
+    {
+      trap1 = 'Siker!';
+    }
 
     return trap1;
 
@@ -125,7 +129,7 @@
 
   QUnit.module('Igaze', function() {
       QUnit.test('Egyezike', function(assert) {
-        assert.equal(holdJaro_Trap(), holdJaro("ffffff").substring(0, 9));
+        assert.equal(holdJaro_Trap(), 'Siker!');
       });
   });
 
