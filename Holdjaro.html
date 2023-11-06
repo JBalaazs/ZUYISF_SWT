@@ -31,7 +31,7 @@
     let rCount = 0;
 
     var TrueOrFalse = false;
-
+        
     for(let i=0; i<a.length; i++)
     {
 
@@ -105,10 +105,9 @@
         {
           const moveY = (y.length + fCount % y.length) % y.length; //Így nem tud nagyobb értéket kapni, mint ahány az Y.
           positionY = y[moveY];
-
-          counter++;
         }
-      
+        
+        counter++;
     }
 
       if(bCount > 0)
@@ -134,8 +133,8 @@
             const moveY = (y.length - bCount % y.length) % y.length;
             positionY = y[moveY]
 
-            counter++;
           }
+          counter++;
       }
 
 
@@ -143,37 +142,24 @@
 
   }
 
-  function holdJaro_Trap(){
+    const traps = {
+        trap1: 'x: 1 y: 7',
+    };
 
-    trap1 = 'x: 1 y: 7';
-    trap2 = 'x: 3 y: 5';
-    trap3 = 'x: 6 y: 3';
-    trap4 = 'x: 5 y: 1';
-    trap5 = 'x: 7 y: 2';
-
-    warning = ""
-
-    /*if ( ('x: ' + positionX + 'y: ' + positionY) == trap1 )
-    {
-
-      
-
-    }*/
-
-
-    if( holdJaro("ffffff").substring(0, 9) == trap1 )
-    {
-      trap1 = 'Siker!';
+    function holdJaro_Trap() {
+        const result = holdJaro("ffffff");
+        for (const trapName in traps) {
+            if (result.substring(0, 9) === traps[trapName]) {
+                return 'Ouch!';
+            }
+        }
+        return result;
     }
 
-    return trap1;
-
-  }
-
   //TRAP ellenőrzés.
-  QUnit.module('Igaze', function() {
-      QUnit.test('Egyezike', function(assert) {
-        assert.equal(holdJaro_Trap(), 'Siker!');
+  QUnit.module('Csapda', function() {
+      QUnit.test('trap1', function(assert) {
+        assert.equal(holdJaro_Trap(), 'Ouch!');
       });
   });
 
