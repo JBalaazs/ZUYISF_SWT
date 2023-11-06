@@ -145,6 +145,7 @@
     const traps = {
         trap1: 'x: 1 y: 7',
         trap2: 'x: 8 y: 2',
+        trap3: 'x: 3 y: 3',
     };
 
     function holdJaro_Trap(input, trapName) {
@@ -153,6 +154,9 @@
         const result = holdJaro(input);
         
         for (const trapName in traps) {
+            if (result.substring(0, 9) === traps[trapName]) {
+                return 'Ouch!';
+            }
             if (result.substring(0, 9) === traps[trapName]) {
                 return 'Ouch!';
             }
@@ -170,6 +174,9 @@
       });
       QUnit.test('trap2', function(assert) {
         assert.equal(holdJaro_Trap("frb", "trap2"), 'Ouch!');
+      });
+      QUnit.test('trap3', function(assert) {
+        assert.equal(holdJaro_Trap("fflbb", "trap3"), 'Ouch!');
       });
   });
 
@@ -425,6 +432,9 @@
       });
       QUnit.test('Elore1JobbraFordHatraMeg1', function(assert) {
           assert.equal(holdJaro("frb"), 'x: 8 y: 2 D: E');
+      });
+      QUnit.test('Elore2BalraFordHatra2', function(assert) {
+          assert.equal(holdJaro("fflbb"), 'x: 3 y: 3 D: W');
       });
   });
 
