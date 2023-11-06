@@ -144,11 +144,18 @@
 
     const traps = {
         trap1: 'x: 1 y: 7',
+        trap2: 'x: 8 y: 2',
     };
 
-    function holdJaro_Trap() {
-        const result = holdJaro("ffffff");
+    function holdJaro_Trap(input, trapName) {
+        
+        
+        const result = holdJaro(input);
+        
         for (const trapName in traps) {
+            if (result.substring(0, 9) === traps[trapName]) {
+                return 'Ouch!';
+            }
             if (result.substring(0, 9) === traps[trapName]) {
                 return 'Ouch!';
             }
@@ -159,7 +166,10 @@
   //TRAP ellenőrzés.
   QUnit.module('Csapda', function() {
       QUnit.test('trap1', function(assert) {
-        assert.equal(holdJaro_Trap(), 'Ouch!');
+        assert.equal(holdJaro_Trap("ffffff", "trap1"), 'Ouch!');
+      });
+      QUnit.test('trap2', function(assert) {
+        assert.equal(holdJaro_Trap("frb", "trap2"), 'Ouch!');
       });
   });
 
